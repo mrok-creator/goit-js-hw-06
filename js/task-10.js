@@ -21,8 +21,10 @@ function onClickDivCreate(event) {
     </div>`;
     starterParam += 10;
   }
+  ref.builderField.innerHTML = '';
   ref.builderField.insertAdjacentHTML('afterbegin', resMarkup);
 }
 function onClickClearAll(event) {
   ref.builderField.innerHTML = '';
+  ref.input.value = '';
 }

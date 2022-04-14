@@ -1,6 +1,7 @@
 const ref = {
   form: document.querySelector('.login-form'),
 };
+const obj = {};
 
 ref.form.addEventListener('submit', onSubmitSaveData);
 
@@ -9,15 +10,18 @@ function onSubmitSaveData(event) {
 
   const { email, password } = event.currentTarget;
 
-  if (email.value === '' || password.value === '') {
+  if (email.value.trim() === '' || password.value.trim() === '') {
     alert('Please fill in all the fields!');
   } else {
-    const formData = new FormData(event.currentTarget);
-    event.currentTarget.reset();
+    obj.email = [email.value.trim()];
+    obj.password = [password.value.trim()];
 
-    formData.forEach((value, contentName) => {
-      console.log(`Item: ${contentName}`);
-      console.log(`Value:  ${value}`);
-    });
+    event.currentTarget.reset();
+    // const formData = new FormData(event.currentTarget);
+
+    // formData.forEach((value, contentName) => {
+    //   console.log(`Item: ${contentName}`);
+    //   console.log(`Value:  ${value}`);});
   }
+  console.log(obj);
 }

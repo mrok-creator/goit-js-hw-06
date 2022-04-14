@@ -4,6 +4,8 @@ const ref = {
 };
 
 const onInputChangeSpanRes = event => {
+  if (!event.currentTarget.value)
+    return (ref.spanRes.textContent = 'Anonymous');
   ref.spanRes.textContent = event.currentTarget.value;
 };
 

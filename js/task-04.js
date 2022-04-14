@@ -3,14 +3,16 @@ const ref = {
   btnIncrement: document.querySelector('#counter').lastElementChild,
   counterValue: document.querySelector('#value'),
 };
-
+let counter = parseInt(ref.counterValue.textContent);
 ref.btnDecrement.addEventListener('click', onBtnClickDecrease);
 ref.btnIncrement.addEventListener('click', onBtnClickIncrease);
 
 function onBtnClickDecrease() {
-  ref.counterValue.textContent -= 1;
+  counter -= 1;
+  ref.counterValue.textContent = counter;
 }
 
 function onBtnClickIncrease() {
-  ref.counterValue.textContent = Number(ref.counterValue.textContent) + 1;
+  counter += 1;
+  ref.counterValue.textContent = counter;
 }

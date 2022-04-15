@@ -9,10 +9,10 @@ const ref = {
   builderField: document.querySelector('#boxes'),
 };
 
-ref.crateBtn.addEventListener('click', onClickDivCreate);
-ref.btnDestroy.addEventListener('click', onClickClearAll);
+ref.crateBtn.addEventListener('click', innit);
+ref.btnDestroy.addEventListener('click', () => onClickInsertMarkup());
 
-function onClickDivCreate(event) {
+function onClickDivCreate() {
   let starterParam = 30;
   let resMarkup = '';
 
@@ -21,10 +21,15 @@ function onClickDivCreate(event) {
     </div>`;
     starterParam += 10;
   }
-  ref.builderField.innerHTML = '';
-  ref.builderField.insertAdjacentHTML('afterbegin', resMarkup);
+  return resMarkup;
 }
-function onClickClearAll(event) {
-  ref.builderField.innerHTML = '';
+
+function onClickInsertMarkup(markup = '') {
   ref.input.value = '';
+  ref.builderField.innerHTML = markup;
+}
+
+function innit() {
+  const item = onClickDivCreate();
+  onClickInsertMarkup(item);
 }
